@@ -64,11 +64,9 @@ rgbeLoader.load('/environmentMaps/0/2k.hdr', (environmentMap) =>
 /**
  * Models
  */
-// Helmet
+// Room
 gltfLoader.load(
-    // '/models/FlightHelmet/glTF/FlightHelmet.gltf',
-    // '/models/room_v2.glb',
-    '/models/room_no_textures.glb',
+    '/models/room_no_textures_new.glb',
     (gltf) =>
     {
         console.log('gltf: ', gltf)
@@ -83,16 +81,18 @@ gltfLoader.load(
 /**
  * Lights
 */
+//Base Light
+const directionalLight = new THREE.DirectionalLight('#ffffff', 2)
+//Blue Light
+const blueLight = new THREE.DirectionalLight('#2528FF', 5)
 
-const directionalLight = new THREE.DirectionalLight('#ffffff', 6)
 directionalLight.position.set( 3, 7, 6 )
+blueLight.position.set(-1.018, 3.407, 1.563)
+blueLight.rotation.set(1.563, 0, 1.563 )
+
 
 scene.add(directionalLight)
-
-// directionalLight.shadow.mapSize.width = 512; // default
-// directionalLight.shadow.mapSize.height = 512; // default
-// directionalLight.shadow.camera.near = 0.5; // default
-// directionalLight.shadow.camera.far = 500; // default
+scene.add(blueLight)
 
 // Shadows
 directionalLight.castShadow = true
@@ -101,14 +101,31 @@ directionalLight.shadow.camera.near = 5
 directionalLight.shadow.mapSize.set(4024, 4024)
 
 
-// Helper
-const directionalLightHelper = new THREE.CameraHelper(directionalLight.shadow.camera)
+// Helper Base
+const directionalShadowsLightHelper = new THREE.CameraHelper(directionalLight.shadow.camera)
+const directionalLightHelper = new THREE.DirectionalLightHelper(directionalLight, 0.2)
+
+// scene.add(directionalShadowsLightHelper)
 scene.add(directionalLightHelper)
+
+// Helper Blue Light 
+
+const blueLightHelper = new THREE.DirectionalLightHelper(blueLight, 0.2)
+scene.add(blueLightHelper)
 
 //Target
 directionalLight.target.position.set(0, 4, 0)
 directionalLight.target.updateWorldMatrix()
 
+blueLight.target.position.set(0, 5, 0)
+blueLight.target.updateWorldMatrix()
+
+gui.add(blueLight.position, 'x').min(-10).max(20).step(0.001)
+gui.add(blueLight.position, 'y').min(-10).max(20).step(0.001)
+gui.add(blueLight.position, 'z').min(-10).max(20).step(0.001)
+gui.add(blueLight.rotation, 'x').min(-10).max(20).step(0.001)
+gui.add(blueLight.rotation, 'y').min(-10).max(20).step(0.001)
+gui.add(blueLight.rotation, 'z').min(-10).max(20).step(0.001)
 /**
  * Objects
  */
