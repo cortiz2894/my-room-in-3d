@@ -66,7 +66,7 @@ rgbeLoader.load('/environmentMaps/0/2k.hdr', (environmentMap) =>
  */
 // Room
 gltfLoader.load(
-    '/models/room_no_textures_new.glb',
+    '/models/room_no_textures_new_2.glb',
     (gltf) =>
     {
         console.log('gltf: ', gltf)
