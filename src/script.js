@@ -66,7 +66,7 @@ rgbeLoader.load('/environmentMaps/0/2k.hdr', (environmentMap) =>
  */
 // Room
 gltfLoader.load(
-    '/models/room_no_textures_new_2.glb',
+    '/models/room_no_textures_new_6.glb',
     (gltf) =>
     {
         console.log('gltf: ', gltf)
@@ -126,47 +126,6 @@ gui.add(blueLight.position, 'z').min(-10).max(20).step(0.001)
 gui.add(blueLight.rotation, 'x').min(-10).max(20).step(0.001)
 gui.add(blueLight.rotation, 'y').min(-10).max(20).step(0.001)
 gui.add(blueLight.rotation, 'z').min(-10).max(20).step(0.001)
-/**
- * Objects
- */
-// const floorColorTexture = textureLoader.load('/textures/wood_cabinet_worn_long/wood_cabinet_worn_long_diff_1k.jpg')
-// const floorNormalTexture = textureLoader.load('/textures/wood_cabinet_worn_long/wood_cabinet_worn_long_nor_gl_1k.png')
-// const floorAORoughnessMetalnessTexture = textureLoader.load('/textures/wood_cabinet_worn_long/wood_cabinet_worn_long_arm_1k.jpg')
-
-// const wallColorTexture = textureLoader.load('/textures/castle_brick_broken_06/castle_brick_broken_06_diff_1k.jpg')
-// const wallNormalTexture = textureLoader.load('/textures/castle_brick_broken_06/castle_brick_broken_06_nor_gl_1k.png')
-// const wallAORoughnessMetalnessTexture = textureLoader.load('/textures/castle_brick_broken_06/castle_brick_broken_06_arm_1k.jpg')
-
-// wallColorTexture.colorSpace = THREE.SRGBColorSpace
-// floorColorTexture.colorSpace = THREE.SRGBColorSpace
-
-// const planeGeometry = new THREE.PlaneGeometry(8, 8)
-// const floorMaterial = new THREE.MeshStandardMaterial({
-//     map: floorColorTexture,
-//     normalMap: floorNormalTexture,
-//     aoMap: floorAORoughnessMetalnessTexture,
-//     roughnessMap: floorAORoughnessMetalnessTexture,
-//     metalnessMap: floorAORoughnessMetalnessTexture
-// })
-// const wallMaterial = new THREE.MeshStandardMaterial({
-//     map: wallColorTexture,
-//     normalMap: wallNormalTexture,
-//     aoMap: wallAORoughnessMetalnessTexture,
-//     roughnessMap: wallAORoughnessMetalnessTexture,
-//     metalnessMap: wallAORoughnessMetalnessTexture
-// })
-// const floor = new THREE.Mesh(planeGeometry, floorMaterial)
-// const wall = new THREE.Mesh(planeGeometry, wallMaterial)
-// floor.receiveShadow = true
-// floor.rotation.x = - Math.PI /2 
-// floor.position.z = 2
-// wall.receiveShadow = true
-// wall.position.y = 4
-// wall.position.z = -2
-
-// scene.add(floor)
-
-
 
 /**
  * Sizes
